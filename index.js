@@ -17,7 +17,7 @@ export const client = new MongoClient(MONGO_URL); // dial
 // Top level await
 app.use(express.json())
 await client.connect(); // call
-console.log("Mongo is connected !!!  ");
+console.log("Mongo is connected !!!");
 
 const movies = [
   {
