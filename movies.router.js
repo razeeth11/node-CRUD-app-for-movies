@@ -24,7 +24,7 @@ router.get("/:id", async function (request, response) {
     : response.status(404).send({ Message: "PAGE NOT FOUND !!" });
 });
 
-router.delete("/movies/:id", async function (request, response) {
+router.delete("/:id", async function (request, response) {
   const { id } = request.params;
   console.log(id);
   const movie = await deleteMoviesById(id);
@@ -35,7 +35,7 @@ router.delete("/movies/:id", async function (request, response) {
 });
 
 router.put(
-  "/movies/:id",
+  "/:id",
   express.json(),
   async function (request, response) {
     const { id } = request.params;
