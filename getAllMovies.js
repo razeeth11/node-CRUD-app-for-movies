@@ -1,7 +1,7 @@
 import { client } from "./index.js";
 
 export async function movies(data) {
-  return await client.db("moviesData").collection("movies").insertMany(data);
+  return await client.db("moviesData").collection("movies").insertOne(data);
 }
 export async function updateMovies(id, data) {
   return await client
