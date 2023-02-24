@@ -5,8 +5,10 @@ dotenv.config()
 import express from "express";           // "type": "module"
 import { MongoClient } from "mongodb";
 import moviesRouter from "./movies.router.js"
+import cors from 'cors'
 const app = express();
 
+app.use(cors())
 const PORT = process.env.PORT;
 
 // const MONGO_URL = "mongodb://127.0.0.1";
