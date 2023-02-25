@@ -50,13 +50,17 @@
 //   }
 // } )
 
-const fs = require ("fs") 
-const data = "The one who abandon his teammates are worser than scum"
+// const fs = require("fs") 
+// const data = "The one who abandon his teammates are worser than scum";
 
-fs.appendFile("./context.txt", "\n" +  data , (err,data)=>{
-  if(err){
-    console.log("Something Error" , err);
-  } else {
-    console.log(data);
-  }
-} )
+// fs.appendFile("./context1.txt", "\n" +  data , (err,data)=>{
+//   if(err){
+//     console.log("Something Error" , err);
+//   } else {
+//     console.log(data);
+//   }
+// } )
+
+// fs.unlink("./delete.js" , ()=>{
+//   console.log("Deleted!");
+// })
