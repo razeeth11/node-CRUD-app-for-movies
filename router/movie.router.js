@@ -1,25 +1,25 @@
 import express from "express";
 import {
-  allMovies,
-  createMovies,
+  getAllMovies,
+  createMovie,
   getMovieById,
-  updateMovie,
+  updateMovieById,
   dltMovieById,
-} from "./allMovies.js";
+} from "../service/movies.service.js";
 const router = express.Router();
 
-router.get("/movies", async function (request, response) {
-  const movies = await allMovies();
+router.get("", async function (request, response) {
+  const movies = await getAllMovies();
   response.send(movies);
 });
 
-router.post("/movies", async function (request, response) {
+router.post("", async function (request, response) {
   const data = request.body;
-  const allMovies = await createMovies(data);
+  const allMovies = await createMovie(data);
   response.send(allMovies);
 });
 
-router.get("/movies/:id", async function (request, response) {
+router.get("/:id", async function (request, response) {
   const { id } = request.params;
   const movieById = await getMovieById(id);
   // const movieById = movies.find((movie)=>movie.id === id)
@@ -30,10 +30,10 @@ router.get("/movies/:id", async function (request, response) {
         .send({ message: "The movie that you searching for is not exist" });
 });
 
-router.put("/movies/:id", async function (request, response) {
+router.put("/:id", async function (request, response) {
   const { id } = request.params;
   const data = request.body;
-  const movieById = await updateMovie(id, data);
+  const movieById = await updateMovieById(id, data);
   movieById
     ? response.send({ message: "Update successfully" })
     : response
@@ -41,9 +41,9 @@ router.put("/movies/:id", async function (request, response) {
         .send({ message: "The movie that you searching for is not exist" });
 });
 
-router.delete("/movies/:id", function (request, response) {
+router.delete("/:id", async function (request, response) {
   const { id } = request.params;
-  const deleteMovieById = dltMovieById(id);
+  const deleteMovieById = await dltMovieById(id);
 
   deleteMovieById.deletedCount >= 1
     ? response.send({ message: "Successfully deleted!" })
@@ -52,4 +52,4 @@ router.delete("/movies/:id", function (request, response) {
         .send({ message: "The movie that you searching for is not exist" });
 });
 
-export default router;
+export default router;  
