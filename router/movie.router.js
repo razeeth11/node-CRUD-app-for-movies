@@ -5,6 +5,7 @@ import {
   getMovieById,
   updateMovieById,
   dltMovieById,
+  createMovie1,
 } from "../service/movies.service.js";
 const router = express.Router();
 
@@ -16,6 +17,12 @@ router.get("", async function (request, response) {
 router.post("", async function (request, response) {
   const data = request.body;
   const allMovies = await createMovie(data);
+  response.send(allMovies);
+});
+
+router.post("", async function (request, response) {
+  const data = request.body;
+  const allMovies = await createMovie1(data);
   response.send(allMovies);
 });
 
