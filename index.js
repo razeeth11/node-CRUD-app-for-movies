@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-d
 dotenv.config()
 import { MongoClient } from "mongodb";
 import moviesRouter from "./router/movie.router.js" 
+import cors from 'cors';
 
 const PORT = process.env.PORT;
 // const MONGO_URL = "mongodb://127.0.0.1";
@@ -14,6 +15,7 @@ export const client = new MongoClient(MONGO_URL); // dial
 await client.connect(); // call
 console.log("Mongo is connected !!!  ");
 
+app.use(cors());
 app.use(express.json()); 
 
 app.get("/", function (request, response) {
