@@ -6,9 +6,6 @@ export async function getAllMovies() {
 export async function createMovie(data) {
   return await client.db("moviesData").collection("movies").insertMany(data);
 }
-export async function createMovie1(data) {
-  return await client.db("moviesData").collection("movies").insertOne(data);
-}
 export async function getMovieById(id) {
   return await client.db("moviesData").collection("movies").findOne({ id: id });
 }
