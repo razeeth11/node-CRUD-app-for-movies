@@ -5,7 +5,9 @@ import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-d
 dotenv.config()
 import { MongoClient } from "mongodb";
 import moviesRouter from "./router/movie.router.js" 
+import usersRouter from "./router/users.router.js" 
 import cors from 'cors';
+
 
 const PORT = process.env.PORT;
 // const MONGO_URL = "mongodb://127.0.0.1";
@@ -23,5 +25,8 @@ app.get("/", function (request, response) {
 });
 
 app.use("/movies" , moviesRouter);
+app.use("/users" , usersRouter);
 
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
+
+
